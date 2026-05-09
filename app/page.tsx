@@ -1,8 +1,10 @@
-import Image from "next/image";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <main className="flex-1">
+      <Hero />
+
       <section id="hero">Hero</section>
       <section id="about">About</section>
       <section id="skills">Skills</section>
