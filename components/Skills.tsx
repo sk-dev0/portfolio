@@ -1,4 +1,5 @@
-import { Chocolate_Classical_Sans } from "next/font/google";
+import Container from "./Container";
+import SectionTitle from "./SectionTitle";
 
 type Badge = {
     label: string;
@@ -28,69 +29,48 @@ const frameworks: Badge[] = [
     { label: "Node.js" },
     { label: "Express" },
     { label: "Ruby on Rails" },
-]
+];
+
+type SkillRow = {
+    label: string;
+    items: Badge[];
+};
+
+const skillRows: SkillRow[] = [
+    { label: "資格", items: qualifications },
+    { label: "言語", items: languages },
+    { label: "フレームワーク", items: frameworks },
+];
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-16 px-8">
-            <div className="flex flex-col gap-8 max-w-2xl">
-                <div>
-                    <p className="text-green-800 text-xl font-medium">
-                        Skills
-                    </p>
-                    <div className="w-8 h-px bg-green-800 mt-2" />
-                </div>
-                
-                
-                <div className="flex flex-col gap-4">
-                    <p className="px-4 text-green-800 text-xl font-medium">
-                        資格
+        <section id="skills" className="py-16 bg-green-50">
+    <Container>
+        <SectionTitle title="skills" />
+
+        <div className="py-2">
+            {skillRows.map((row, index) => (
+                <div
+                    key={row.label}
+                    className={`flex items-start gap-8 py-6 ${index !== skillRows.length - 1 ? "border-b border-green-200" : ""}`}
+                >
+                    <p className="text-green-800 text-base font-medium min-w-36">
+                        {row.label}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                        {qualifications.map((item) => (
+                        {row.items.map((item) => (
                             <span
                                 key={item.label}
-                                className="px-4 py-1 text-sm ring-1 ring-green-800 text-green-800 rounded-full"
+                                className="px-4 py-1.5 text-sm ring-1 ring-green-800 text-green-800 rounded-full bg-white"
                             >
                                 {item.label}
                             </span>
                         ))}
                     </div>
                 </div>
-
-                <div className="flex flex-col gap-4">
-                    <p className="px-4 text-green-800 text-xl font-medium">
-                        扱ったことのある言語
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                        {languages.map((item) => (
-                            <span
-                                key={item.label}
-                                className="px-4 py-1 text-sm ring-1 ring-green-800 text-green-800 rounded-full"
-                            >
-                                {item.label}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                    <p className="px-4 text-green-800 text-xl font-medium">
-                        扱ったことのあるフレームワーク
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                        {frameworks.map((item) => (
-                            <span
-                                key={item.label}
-                                className="px-4 py-1 text-sm ring-1 ring-green-800 text-green-800 rounded-full"
-                            >
-                                {item.label}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-
-            </div>
-        </section>
+            ))}
+        </div>
+    </Container>
+</section>
     );
 }
