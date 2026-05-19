@@ -4,7 +4,7 @@ import WorkCard from "./WorkCard";
 
 export default function Works() {
     return (
-        <section id="works" className="py-16 px-8">
+        <section id="works" className="py-16 px-8 bg-green-50">
             <Container>
                 <div>
                     <SectionTitle title="Works" />

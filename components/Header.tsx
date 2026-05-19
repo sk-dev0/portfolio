@@ -5,6 +5,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
     { label: "About", href: "#about" },
+    { label: "History", href: "#history" },
     { label: "Skills", href: "#skills" },
     { label: "Works", href: "#works" },
     { label: "Contact", href: "#contact" },
