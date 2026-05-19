@@ -44,7 +44,7 @@ const skillRows: SkillRow[] = [
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-16 bg-green-50">
+        <section id="skills" className="py-16">
     <Container>
         <SectionTitle title="skills" />
 

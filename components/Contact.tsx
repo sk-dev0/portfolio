@@ -3,7 +3,7 @@ import SectionTitle from "./SectionTitle"
 
 export default function Contact() {
     return (
-        <section id="Contact" className="px-8 py-16 bg-green-50">
+        <section id="Contact" className="px-8 py-16">
             <Container>
                 <div>
                     <SectionTitle title="Contact" />
