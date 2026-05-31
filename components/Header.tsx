@@ -13,22 +13,22 @@ const navItems: NavItem[] = [
 
 export default function Header() {
     return (
-        <header className="sticky top-0 z-50 bg-green-900 px-8 py-4 flex items-center justify-between">
-            <span className="text-white tracking-widest text-sm font-medium">
+        <header className="sticky top-0 z-50 bg-[#0f3d24] px-8 py-4 flex items-center justify-between">
+            <span className="text-[#d4af37] tracking-wide text-sm font-medium">
                 Kihara Shota
             </span>
 
             <nav className="flex gap-8">
                 {navItems.map((item) => (
-                <a
-                    key={ item.href }
-                    href={item.href}
-                    className="text-green-200 text-sm hover:text-white transition-colors"
-                >
-                    {item.label}
-                </a>
+                    <a
+                        key={item.href}
+                        href={item.href}
+                        className="text-white/70 text-sm hover:text-[#d4af37] transition-colors"
+                    >
+                        {item.label}
+                    </a>
                 ))}
             </nav>
         </header>
     );
-};
+}
