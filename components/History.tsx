@@ -23,9 +23,9 @@ const historyItems: HistoryItem[] = [
 
 export default function History() {
     return (
-        <section id="history" className="py-16 bg-green-50">
+        <section id="history" className="py-16 bg-[#e6efe8]">
             <Container>
-                <SectionTitle title="History" />
+                <SectionTitle title="History" onTint/>
                 <div className="relative">
                     <div className="absolute left-24 top-0 bottom-0 w-px bg-green-200" />
                     <div className="flex flex-col gap-8">
