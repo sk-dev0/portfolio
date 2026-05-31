@@ -14,25 +14,25 @@ export default function Works() {
                         title="トイレットペーパー自動巻き出し装置"
                         description="RasberryPiとセンサーをPythonで制御して作成したトイレットペーパーを自動でちょうどいい長さまで引き出してくれる装置"
                         tags={["Python"]}
-                        href="/"
+                        href="/works/toilet-paper"
                     />
                     <OtherWorkCard
                         title="raylibミニゲーム"
                         description="raylibを用いて作成したミニゲーム。矢印キーとスペースキーで操作し、障害物をよけながらゴールを目指す"
                         tags={["C言語"]}
-                        href="/"
+                        href="/works/raylib-game"
                     />
                     <OtherWorkCard
                         title="数字認識モデル"
                         description="Neural Network Consoleというソフトウェアを用いて学習を行いモデルを作成し、spresenseというハードに映して数字をカメラに移し、その数字の認識を行う"
                         tags={[]}
-                        href="/"
+                        href="/works/digit-recognition"
                     />
                     <OtherWorkCard
                         title="カラオケ喉締まりセンサー"
                         description="圧力センサーとArduinoを用いて首元の筋肉の動きを圧力として検知することで喉が締まっているかどうかをリアルタイムで通知する。"
                         tags={[]}
-                        href="/"
+                        href="/works/karaoke-sensor"
                     />
                 </div>
             </Container>

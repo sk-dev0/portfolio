@@ -4,17 +4,17 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-    { label: "About", href: "#about" },
-    { label: "History", href: "#history" },
-    { label: "Skills", href: "#skills" },
-    { label: "Works", href: "#works" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "/#about" },
+    { label: "History", href: "/#history" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Works", href: "/#works" },
+    { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
     return (
         <header className="sticky top-0 z-50 bg-green-900 px-8 py-4 flex items-center justify-between">
-            <span className="text-white tracking-widest test-sm font-medium">
+            <span className="text-white tracking-widest text-sm font-medium">
                 Kihara Shota
             </span>
 
