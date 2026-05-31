@@ -8,7 +8,7 @@ export default function Hero() {
                     <p className="text-[#d4af37] text-xs tracking-[0.16em]">
                         慶應義塾大学　情報工学科
                     </p>
-                    <h1 className="text-white text-5xl font-medium mt-3 leading-tight">
+                    <h1 className="text-white text-3xl sm:text-5xl font-medium mt-3 leading-tight">
                         木原祥太
                     </h1>
                     <div className="w-10 h-px bg-[#d4af37] mt-5" />

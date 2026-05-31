@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type ContentBlock =
     | { type: "image"; src: string }
@@ -121,7 +122,7 @@ export default async function MainWorkDetailPage({ params }: { params: Promise<{
     const work = works[slug];
 
     if (!work) {
-        return <p>作品が見つかりません</p>;
+        notFound();
     }
 
     const sections: { label: string; body?: string }[] = [
@@ -141,10 +142,10 @@ export default async function MainWorkDetailPage({ params }: { params: Promise<{
                 {(work.github || work.liveUrl) && (
                     <div className="flex gap-4 text-xl text-green-800 font-medium mt-3">
                         {work.liveUrl && (
-                            <a href={work.liveUrl} className="hover:text-green-600 transition-colors">アプリを見る →</a>
+                            <a href={work.liveUrl} target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors">アプリを見る →</a>
                         )}
                         {work.github && (
-                            <a href={work.github} className="hover:text-green-600 transition-colors">GitHub →</a>
+                            <a href={work.github} target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors">GitHub →</a>
                         )}
                     </div>
                 )}

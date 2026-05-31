@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type ContentBlock =
     | { type: "image"; src: string }
@@ -114,6 +115,7 @@ const works: Record<string, WorkDetail> = {
             { type: "text", body: "圧力センサー使用の様子" },
             { type: "image", src: "/works/RS/how-to-use.png" },
             { type: "text", body: "デモ動画" },
+            { type: "text", body: "圧力を加えるとセンサーの値が大きくなり、あらかじめ設定した閾値を超えると喉が締まっていると判断して赤色の表示でユーザーにフィードバックを行う。" },
             { type: "video", src: "/works/RS/demo.mp4" },
         ],
     },
@@ -124,7 +126,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
     const work = works[slug];
 
     if (!work) {
-        return <p>作品が見つかりません</p>;
+        notFound();
     }
 
     return (
