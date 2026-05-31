@@ -52,9 +52,9 @@ export default function Skills() {
             {skillRows.map((row, index) => (
                 <div
                     key={row.label}
-                    className={`flex items-start gap-8 py-6 ${index !== skillRows.length - 1 ? "border-b border-green-200" : ""}`}
+                    className={`flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-8 py-6 ${index !== skillRows.length - 1 ? "border-b border-green-200" : ""}`}
                 >
-                    <p className="text-green-800 text-base font-medium min-w-36">
+                    <p className="text-green-800 text-base font-medium sm:min-w-36">
                         {row.label}
                     </p>
                     <div className="flex flex-wrap gap-2">

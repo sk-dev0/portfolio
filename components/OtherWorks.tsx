@@ -9,7 +9,7 @@ export default function Works() {
                     <p className="text-sm text-green-800 font-medium mb-4">その他の制作物</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <OtherWorkCard
                         title="トイレットペーパー自動巻き出し装置"
                         description="RasberryPiとセンサーをPythonで制御して作成したトイレットペーパーを自動でちょうどいい長さまで引き出してくれる装置"
