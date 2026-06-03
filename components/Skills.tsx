@@ -20,7 +20,6 @@ const languages: Badge[] = [
     { label: "Python" },
     { label: "C言語" },
     { label: "JAVA" },
-    { label: "Ruby" },
 ];
 
 const frameworks: Badge[] = [
@@ -28,7 +27,6 @@ const frameworks: Badge[] = [
     { label: "React" },
     { label: "Node.js" },
     { label: "Express" },
-    { label: "Ruby on Rails" },
 ];
 
 type SkillRow = {
