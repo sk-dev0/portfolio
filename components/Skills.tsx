@@ -25,6 +25,7 @@ const languages: Badge[] = [
 const frameworks: Badge[] = [
     { label: "Next.js" },
     { label: "React" },
+    { label: "React Native（Expo）" },
     { label: "Node.js" },
     { label: "Express" },
 ];

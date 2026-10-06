@@ -72,6 +72,46 @@ const works: Record<string, MainWorkDetail> = {
             { type: "video", src: "/works/rethink/result2.mp4" },
         ],
     },
+    "wake-app": {
+        title: "wake-app",
+        label: "個人開発",
+        description: "物理的制約を伴い起きられるようにする目覚ましアプリ。設定した時刻になるとアラームが鳴り、あらかじめ用意していたQRコードのうち指定されたものを読み込み、その後数学の問題を2問解くまでアラームが止まらない。心身ともに目が覚める手伝いをするアプリである。",
+        tags: ["React Native（Expo）", "TypeScript"],
+        github: "https://github.com/sk-dev0/wake-app",
+        points: `毎朝読み込むQRが同じにならないようにランダムにした。また数学の問題も慣れてしまわないように複数の種類の問題を用意しランダムで出題されるようにした。
+            あまりに難易度が高すぎると寝起きで解くには困難になるため、寝起きでも解ける難易度に調整した。
+            QRコードを紛失した場合やなんらかの不具合が生じた場合は、問題を解くだけでアラームを止められるフォールバックモードを用意した。
+            使い方を示すためにチュートリアルを用意した。これはいままで作成したアプリを知人に使用してもらった際に使い方が分からないと言われたことを踏まえて用意したものである。
+            画面が消えた場合にアプリから音を鳴らすことができないため、スリープ防止機能を付けてアラームとして機能するようにした。
+            アプリが閉じられたときの保険としてアラームの時刻から15秒おきに20件の通知を予約するようにした。`,
+        learnings: `Expo Goを用いたアプリ開発の流れを学習することができた。
+            通常のReactとは違ったタグを用いる必要があることが分かった。
+            またモバイル特有の画面遷移について理解できた。
+            アプリ側からOSなどに対して権限を要求したり、権限の許可状況によって動作を変える必要性があることが分かった。
+            OSによって制約を受けるため、OSの制約の中で動く機能を作る必要があることが分かった。`,
+        issues: `お金を払うことが困難であるのでアプリをデプロイすることができない。
+            またそのため動作確認は自分のiPhone一台だけである。
+            アラームの判定と音の再生はアプリが前面にいるときにしか動かないため、画面を消したりアプリを閉じたりするとアラームが鳴らなくなる。
+            これによって一晩中画面を付けておく必要がある(スリープ防止機能で是正を図った)。
+            アプリを強制終了されるとアラームを鳴らすことができず、ユーザーの使い方に任せるしかない。`,
+        content: [
+            { type: "text", body: "デモ動画（7-9秒にかけて音が鳴ります）" },
+            { type: "text", body: "ここではアラームを追加、QRコードを作成し、QRコードを印刷する手順を示している。" },
+            { type: "text", body: "アラームが少なくとも一つ有効になっており、QRコードが少なくとも一つ登録されていれば就寝モードに移行できる。" },
+            { type: "text", body: "就寝モードとはアラームの発火を待つ画面であり、このモードにして画面を付けたままアラーム時刻を迎える必要がある。" },
+            { type: "video", src: "/works/wake-app/demo.mp4" },
+            { type: "text", body: "デモ画像1" },
+            { type: "text", body: "アラームが発火すると最初にQRコードを読み取るように求められる。" },
+            { type: "text", body: "登録したQRコードのうちランダムで出題され、それを読むと次の画面に移動できる。" },
+            { type: "image", src: "/works/wake-app/qrScan.jpg" },
+            { type: "text", body: "デモ画像2" },
+            { type: "text", body: "QRコードを読み込むと数学の問題が2問出題される画面に移行する。" },
+            { type: "text", body: "60秒以内に正しい答えを入力できれば正答となり、2問正答すればアラームが停止する。" },
+            { type: "text", body: "誤答した場合は制限時間内は再度解答が可能であり、時間切れになると次の問題が表示される。" },
+            { type: "text", body: "問題は全部で7種類あり、問題の種類と各数値はランダムに選出される。" },
+            { type: "image", src: "/works/wake-app/mathQuiz.jpg" },
+        ],
+    },
     "dish-cover": {
         title: "dish-cover",
         label: "個人開発",
@@ -158,10 +198,10 @@ export default async function MainWorkDetailPage({ params }: { params: Promise<{
                     <div className="flex flex-col gap-6">
                         {work.content.map((block, i) => {
                             if (block.type === "image") {
-                                return <img key={i} src={block.src} alt="" className="w-full rounded-lg" />;
+                                return <img key={i} src={block.src} alt="" className="block w-auto max-w-full max-h-[600px] mx-auto rounded-lg" />;
                             }
                             if (block.type === "video") {
-                                return <video key={i} src={block.src} controls className="w-full rounded-lg" />;
+                                return <video key={i} src={block.src} controls className="w-full max-h-[600px] rounded-lg" />;
                             }
                             return <p key={i} className="text-base font-medium text-gray-700 leading-relaxed">{block.body}</p>;
                         })}
