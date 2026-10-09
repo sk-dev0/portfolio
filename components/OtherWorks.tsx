@@ -38,6 +38,13 @@ export default function Works() {
                         href="/works/karaoke-sensor"
                         category="講義"
                     />
+                    <OtherWorkCard
+                        title="図書館管理システム"
+                        description="Java SwingによるGUIを用いた模擬的な図書館管理システム。"
+                        tags={["Java"]}
+                        href="/works/library-system"
+                        category="講義"
+                    />
                 </div>
             </Container>
         </section>
