@@ -45,6 +45,13 @@ export default function Works() {
                         href="/works/library-system"
                         category="講義"
                     />
+                    <OtherWorkCard
+                        title="3Dモデル制作と3Dプリント"
+                        description="RhinoとGrasshopperを用いて、複数の人間の手を組み合わせてStanford Bunnyを構成した3Dモデル。完成したモデルをもとに3Dプリントで造形物も作成した。"
+                        tags={[]}
+                        href="/works/stanford-bunny"
+                        category="講義"
+                    />
                 </div>
             </Container>
         </section>
