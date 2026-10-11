@@ -149,6 +149,34 @@ const works: Record<string, WorkDetail> = {
             { type: "video", src: "/works/library/demo2.mp4" },
         ],
     },
+    "stanford-bunny": {
+        title: "3Dモデル制作と3Dプリント",
+        label: "講義制作",
+        description: "講義の課題として、Stanford Bunnyを入力とした3Dモデルを制作した。RhinoとGrasshopperを用いて複数の人間の手を組み合わせてStanford Bunnyを構成し、完成したモデルをもとに3Dプリントをしてもらった。",
+        tags: [],
+        points: `Bunnyの耳や背中など特徴的なパーツでは、Bunnyとの論理積を取ると手がBunnyの表面形状に切り取られ、手を敷き詰めただけの表現になる。そこで円柱との積で前腕部分だけを切り落とした手をBunnyとは独立して配置し、手を組み合わせて構成していることがはっきり分かるようにした。
+            手のメッシュは1つあたり約7万ポリゴンあり、十数本を処理すると演算が非常に重くなった。印刷で残る指の輪郭や手の大まかな形が保てる程度として約5000ポリゴンまで削減し、実用的な時間で演算が終わるようにした。
+            Mesh Unionによる結合が期待どおりに動かなかったため、STLファイルを出力するという目的に絞り、Mergeで一つにまとめて出力した。
+            手のモデルは自作では時間が足りないと判断し、指を動かしてポーズを変えられる外部モデルを採用して、パーツごとに必要なポーズを作った。`,
+        learnings: `メッシュのBoolean演算はメッシュの内外判定に基づいており、穴が開いていると判定が崩れて意図しない結果になった。(手のメッシュの穴をふさぐとMesh Intersectionが正しく動いたため。)
+            3Dモデル上で表現できていても、印刷すると細部がプリンターのノズルの太さに制約されて再現できなかった。印刷でどの程度の精細さが必要かを事前に考えておく必要があった。`,
+        issues: `Mesh Unionで一部の手のメッシュが結果に含まれない問題があり、メッシュの復元などを試したが解決する時としない時があって根本の原因を特定できなかった。
+            課題はBunnyを入力として3Dモデルを作ることであったが、Bunnyは手を配置するための位置合わせという表面的な役割しか担っておらず、Bunnyを入力とする必然性が薄かった。
+            手のモデルの自作や、パラメータで調整できるパラメトリックな処理は、技術と時間の不足で実現できなかった。`,
+        content: [
+            { type: "text", body: "作成した3Dモデル(正面)" },
+            { type: "image", src: "/works/stanford-bunny/3Dmodel-front.png" },
+            { type: "text", body: "作成した3Dモデル(上から)" },
+            { type: "image", src: "/works/stanford-bunny/3Dmodel-top.png" },
+            { type: "text", body: "モデルをもとに3Dプリントしてもらったもの(正面)" },
+            { type: "image", src: "/works/stanford-bunny/3Dprint-front.png" },
+            { type: "text", body: "モデルをもとに3Dプリントしてもらったもの(上から)" },
+            { type: "image", src: "/works/stanford-bunny/3Dprint-top.png" },
+            { type: "text", body: "クレジット" },
+            { type: "text", body: "Stanford Bunny：Stanford University Computer Graphics Laboratory (The Stanford 3D Scanning Repository)" },
+            { type: "text", body: "手のモデル：Hands Rigged (作者：SparrowHawk、入手元：BlendSwap、https://www.blendswap.com/blend/22269 、ライセンス：CC0)" },
+        ],
+    },
 };
 
 export default async function WorkDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -190,18 +218,22 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
                     </div>
                 )}
 
-                <hr className="border-gray-200" />
+                {work.tags.length > 0 && (
+                    <>
+                        <hr className="border-gray-200" />
 
-                <div>
-                    <p className="text-base font-medium text-gray-900 tracking-wide mb-2">使用技術</p>
-                    <div className="flex flex-wrap gap-1.5">
-                        {work.tags.map((tag) => (
-                            <span key={tag} className="text-base px-2.5 py-0.5 rounded-full ring-1 ring-green-700 text-green-800 bg-green-50">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                </div>
+                        <div>
+                            <p className="text-base font-medium text-gray-900 tracking-wide mb-2">使用技術</p>
+                            <div className="flex flex-wrap gap-1.5">
+                                {work.tags.map((tag) => (
+                                    <span key={tag} className="text-base px-2.5 py-0.5 rounded-full ring-1 ring-green-700 text-green-800 bg-green-50">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                )}
 
                 <hr className="border-gray-200" />
 
